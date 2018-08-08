@@ -1,5 +1,5 @@
-#coding=utf-8
-#lesson 1, task easy
+# coding=utf-8
+# lesson 1, task easy
 
 print('Жданов Владимир, домашнее задание №1 easy')
 print('Задача 1')
@@ -9,7 +9,6 @@ print('Значение переменной "А": ', variable_A)
 
 variable_B = input('Введите значение переменной "В"  ')
 print('Значение переменной "А" и "В":', variable_A, 'и', variable_B)
-
 
 
 print('Задача 2')
