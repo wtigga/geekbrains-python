@@ -30,21 +30,17 @@ if (user_weight > 120) or (user_weight < 50):
 else:
     weight_status = 0
 
-
+user_full_report()
 if weight_status == 1:
     if user_age > 60:
-        user_full_report()
         print('Вызывайте неотложку!')
     elif user_age > 40:
-        user_full_report()
         print('Обратитесь к врачу.')
     elif user_age > 30:
-        user_full_report()
         print('Вам нужно вести здоровый образ жизни.')
     else:
         print('Вы вводите алгоритм в заблуждение.')
 else:
-    user_full_report()
     print('У вас всё отлично!')
 input()
 # задержка выключения программы
