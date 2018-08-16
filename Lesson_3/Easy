@@ -1,0 +1,65 @@
+# coding=utf-8
+# lesson 3, task easy
+
+# Постарайтесь использовать то, что мы прошли на уроке при решении этого ДЗ,
+# вспомните про zip(), map(), lambda, посмотрите где лучше с ними, а где они излишни!
+
+# Задание - 1
+# Создайте функцию, принимающую на вход Имя, возраст и город проживания человека
+# Функция должна возвращать строку вида "Василий, 21 год(а), проживает в городе Москва"
+
+user_name = 'Василий'
+user_age = 21
+user_city = 'Москва'
+
+
+def user_info(name, age, city):
+    line = name + ', ' + str(age) + ' год(а), проживает в городе ' + city
+    return line
+
+# сложно представить, зачем в этой задаче может пригодиться map, lambda или zip
+
+
+print(user_info(user_name, user_age, user_city))
+
+
+# Задание - 2
+# Создайте функцию, принимающую на вход 3 числа, и возвращающую наибольшее из них
+
+
+def max_out_of_three(x, y, z):
+    return max(x, y, z)
+
+
+print('Самое большое число из набора:', max_out_of_three(9, 150, 25))
+
+
+# Задание - 3
+# Создайте функцию, принимающую неограниченное количество строковых аргументов,
+# верните самую длинную строку из полученных аргументов
+
+
+sample_date = ['hello', 'world', 'super drupper', 'cat', 'lorem ipsum fantastic galore']
+
+# решение "в лоб"
+
+
+def longest_line(*args):
+    line_length = []  # список для хранения длин элементов
+    for arg in args:
+        line_length.append(len(arg))  # добавляем каждую длину в список длин
+    return args[line_length.index(max(line_length))]   # выбираем максимальную длину из списка длин, используем её индекс для получения строки с максимальной длиной из списка аргументов
+
+
+print('Строка с максимальной длиной:', longest_line(*sample_date))
+
+# с использованием map и lambda
+
+
+def longest_line_map(*args):
+    line_length = []
+    map(lambda x: line_length.append, args)
+    return args[line_length.index(max(line_length))] # выбираем максимальную длину из списка длин, используем её индекс для получения строки с максимальной длиной из списка аргументов
+
+
+print('Строка с максимальной длиной:', longest_line(*sample_date))
