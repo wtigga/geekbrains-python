@@ -6,8 +6,8 @@
 # Например:
 # Пупкин василий - неверно указано имя, te$T@test.net - неверно указан email (спецсимвол, заглавная буква, .net), te_4_st@test.com - верно указан.
 
-
 import re
+
 pattern_name = '^[А-Я]+[а-я]+$'
 pattern_email = '[a-z]+@[a-z]+\.(ru|com|org)'
 storage = []
@@ -31,12 +31,6 @@ validate_and_store(pattern_email, user_email, storage)
 
 
 print(storage)
-
-
-
-
-
-
 
 
 
@@ -77,3 +71,17 @@ some_str = '''
 
 # Необходимо с помощью регулярных выражений определить есть ли в тексте подряд
 # более одной точки, при любом исходе сообщите результат пользователю!
+
+pattern = '\.{2,}'
+found = 0
+
+for i in some_str.split('\n'):
+    if (re.search(pattern, str(i)) is None) is False:
+        found = found + 1
+if found >= 1:
+    print('Найдено совпадений: {}'.format(found))
+else:
+    print('Совпадений не найдено')
+
+
+
