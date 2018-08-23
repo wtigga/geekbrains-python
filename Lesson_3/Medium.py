@@ -12,20 +12,23 @@ salaries = [150000, 20000, 5000, 90000, 45000, 35000]
 salaries_list = dict(zip(employees, salaries))
 list_of_keys = salaries_list.keys()
 
+TAX_MULTIPLIER = 0.87
+MAX_SALARY = 50000
+
 with open('salaries_file.txt', 'w+', encoding='utf-8') as opened_file:
     for keys in list_of_keys:
         to_write = (str(keys) + '\t-\t' + str(salaries_list.get(keys)) + '\n') # табуляция вместо пробела для настоящих столбцов, как в table delimited CSV
         opened_file.write(to_write)
 
-# После чего прочитайте файл, выведите построчно имя и зарплату минус 13% (налоги ведь),
+
 
 with open('salaries_file.txt', 'r', encoding='utf-8',) as read_file:
     print('Зарплаты до 50 тыс. с вычетом налога 13%:\n')
     for entries in read_file:
         single_user_data = entries.split('\t')
         username = single_user_data[0]
-        salary = float(single_user_data[2].rstrip('\n')) * 0.87
-        if salary < 50000:
+        salary = float(single_user_data[2].rstrip('\n')) * TAX_MULTIPLIER
+        if salary < MAX_SALARY:
             print(username.upper(), '-', int(salary))
 
 
